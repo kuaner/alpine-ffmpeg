@@ -8,10 +8,9 @@ RUN apk add --update curl tzdata upx ca-certificates &&\
     curl -Lo /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub &&\
     curl -Lo glibc.apk "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk" &&\
     curl -Lo glibc-bin.apk "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-bin-${GLIBC_VERSION}.apk" &&\
-    apk add glibc-bin.apk glibc.apk &&\
-    /usr/glibc-compat/sbin/ldconfig /lib /usr/glibc-compat/lib &&\
+    apk add glibc.apk &&\
     echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf &&\
-    curl -Lo ffmpeg-release-64bit-static.tar.xz https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz && \
+    curl -Lo ffmpeg-release-64bit-static.tar.xz https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz && \
     VER=`curl https://johnvansickle.com/ffmpeg/ | grep 'release:' |awk '{print $2}'` &&\
     tar xvJf ffmpeg-release-64bit-static.tar.xz &&\
     upx ./ffmpeg-${VER}-64bit-static/ffmpeg &&\
