@@ -1,9 +1,9 @@
-FROM alpine:3.11
+FROM alpine:3.12
 
 LABEL maintainer="kuaner@gmail.com"
 
 ENV GLIBC_VERSION=2.31-r0
-ENV VER=4.2.2
+ENV VER=4.2.3
 
 # Download and install glibc ffmpeg
 RUN apk add --update curl tzdata busybox-extras && \
